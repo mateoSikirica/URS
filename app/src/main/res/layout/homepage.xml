@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="30dp"
+    android:background="@drawable/background"
+ >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:id="@+id/ime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/tempsnip"
+            />
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tempsnip2"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_height="72dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pocetna" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Početna"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/brojljudi" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Broj ljudi"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/kartica" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tvoja"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="kartica"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/napredak" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Napredak"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profil" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profil"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

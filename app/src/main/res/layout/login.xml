@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="70dp"
+    android:background="@drawable/background"
+    tools:context=".Login">
+    android:text="@string/updating_title"/>
+
+    <ImageView
+        android:background="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="90dp"
+        android:layout_marginBottom="80dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/colorAccent"
+        />
+
+    <EditText
+        android:id="@+id/emailID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lozinka:"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/colorAccent"
+        />
+
+    <EditText
+        android:id="@+id/passID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp"
+        />
+    <Button
+        android:id="@+id/goToHomepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prijava"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/button"
+        />
+    <Button
+        android:background="#1B1E24"
+        android:id="@+id/goToRegister"
+        android:paddingTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nemate korisnički račun? Registrirajte se"
+        android:textColor="#15B7B9"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        />
+</LinearLayout>
