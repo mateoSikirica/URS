@@ -21,11 +21,8 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //This method will be executed once the timer is over
-                // Start your app main activity
                 Intent i = new Intent(Splash.this, Login.class);
                 startActivity(i);
-                // close this activity
                 finish();
             }
         }, 3000);
