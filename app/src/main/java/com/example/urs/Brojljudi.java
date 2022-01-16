@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-public class Homepage extends AppCompatActivity {
-    private ImageButton brojljudi;
+public class Brojljudi extends AppCompatActivity {
+    private ImageButton pocetna;
     private ImageButton napredak;
 
     @Override
@@ -22,17 +19,15 @@ public class Homepage extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.activity_brojljudi);
 
-
-        brojljudi=findViewById(R.id.brojljudi);
-        brojljudi.setOnClickListener(new View.OnClickListener() {
+        pocetna=findViewById(R.id.pocetna);
+        pocetna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openBrojljudiActivity();
+                openHomepageActivity();
             }
         });
-
         napredak=findViewById(R.id.napredak);
         napredak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +36,11 @@ public class Homepage extends AppCompatActivity {
             }
         });
     }
-
-    public void openBrojljudiActivity() {
-        Intent intent = new Intent (this, Brojljudi.class);
+    public void openHomepageActivity() {
+        Intent intent = new Intent (this, Homepage.class);
         startActivity(intent);
     }
+
     public void openNapredakActivity() {
         Intent intent = new Intent (this, Napredak.class);
         startActivity(intent);

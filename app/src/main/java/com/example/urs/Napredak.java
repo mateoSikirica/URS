@@ -7,14 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-public class Homepage extends AppCompatActivity {
-    private ImageButton brojljudi;
-    private ImageButton napredak;
+public class Napredak extends AppCompatActivity {
+    private ImageButton goTohomepage;
+    private ImageButton goToBrojljudi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,32 +19,32 @@ public class Homepage extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.activity_napredak);
 
+        goTohomepage=findViewById(R.id.pocetna);
+        goTohomepage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHomepageActivity();
+            }
+        });
 
-        brojljudi=findViewById(R.id.brojljudi);
-        brojljudi.setOnClickListener(new View.OnClickListener() {
+        goToBrojljudi=findViewById(R.id.brojljudi);
+        goToBrojljudi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openBrojljudiActivity();
             }
         });
+    }
 
-        napredak=findViewById(R.id.napredak);
-        napredak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNapredakActivity();
-            }
-        });
+    public void openHomepageActivity() {
+        Intent intent = new Intent (this, Homepage.class);
+        startActivity(intent);
     }
 
     public void openBrojljudiActivity() {
         Intent intent = new Intent (this, Brojljudi.class);
-        startActivity(intent);
-    }
-    public void openNapredakActivity() {
-        Intent intent = new Intent (this, Napredak.class);
         startActivity(intent);
     }
 }
