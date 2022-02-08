@@ -27,17 +27,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="left"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginRight="85dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="01.03 - 06.07"
-            android:textColor="@color/colorAccent" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -58,10 +53,10 @@
                 android:text="Broj dolazaka:"
                 android:textColor="@color/colorAccent" />
             <TextView
+                android:id="@+id/brojdolazaka"
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="9"
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
         <LinearLayout
@@ -86,73 +81,13 @@
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_gravity="left"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_marginRight="85dp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="02.11 - 03.12"
-                android:textColor="@color/colorAccent" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/crta"
-                />
-            <LinearLayout
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Broj dolazaka:"
-                    android:textColor="@color/colorAccent" />
-                <TextView
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="5"
-                    android:textColor="@color/colorAccent" />
-            </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Ukupno trajanje treninga: "
-                android:textColor="@color/colorAccent" />
-
-            <TextView
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="5h 15 min"
-                android:textColor="@color/colorAccent" />
-        </LinearLayout>
-    </LinearLayout>
-        <ImageView
+    <ImageView
+            android:layout_marginBottom="15dp"
             android:layout_gravity="center"
             android:layout_marginTop="11dp"
-            android:layout_width="360dp"
-            android:layout_height="188dp"
+            android:layout_width="380dp"
+            android:layout_height="260dp"
             android:background="@drawable/graf" />
     <LinearLayout
         android:layout_marginTop="2dp"

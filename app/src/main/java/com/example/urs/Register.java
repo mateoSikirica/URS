@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 public class Register extends AppCompatActivity {
     private Button goToHomepage;
-    static EditText user, pass;
+    public static EditText user, pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

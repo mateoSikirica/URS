@@ -99,8 +99,6 @@ public class Brojljudi extends AppCompatActivity {
         @SuppressLint("WrongThread")
         @Override
         protected String doInBackground(String... strings) {
-            Date date = new Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
             try {
                 Connection con = connectionClass.CONN();
                 if(con == null) {
