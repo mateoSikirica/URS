@@ -75,13 +75,27 @@ public class Napredak extends AppCompatActivity {
     public class DoReadFromDatabase extends AsyncTask<String, String, String>
     {
         TextView view;
-        String userstr = user.getText().toString();
+        String namestr;
         String z = "";
         boolean isSuccess=false;
         int counter = 0;
 
         @Override
         protected void onPreExecute() {
+            try {
+                if (!user.getText().toString().equals("")) {
+                    namestr = user.getText().toString();
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (!HelperClass.userconcat.equals("")) {
+                    namestr = HelperClass.userconcat;
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
             progressDialog.setMessage("Loading..");
             progressDialog.show();
         }
@@ -95,7 +109,7 @@ public class Napredak extends AppCompatActivity {
                     z="please check your internet connection";
                 } else {
                     String query = null;
-                    query= "select dolazak from user where imeprezime='"+userstr+"';";
+                    query= "select dolazak from user where imeprezime='"+namestr+"';";
                     Statement stmt = con.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
                     while(rs.next()) {

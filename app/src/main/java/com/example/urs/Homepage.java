@@ -84,13 +84,27 @@ public class Homepage extends AppCompatActivity  {
 
     public class DoWriteInDatabase extends AsyncTask<String, String, String>
     {
-        String namestr = user.getText().toString();
+        String namestr;
 
         String z = "";
         boolean isSuccess=false;
 
         @Override
         protected void onPreExecute() {
+            try {
+                if (!user.getText().toString().equals("")) {
+                    namestr = user.getText().toString();
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (!HelperClass.userconcat.equals("")) {
+                    namestr = HelperClass.userconcat;
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
             progressDialog.setMessage("Loading..");
             progressDialog.show();
         }
