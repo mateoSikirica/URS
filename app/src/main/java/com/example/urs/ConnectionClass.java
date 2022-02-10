@@ -2,10 +2,8 @@ package com.example.urs;
 
 import android.annotation.SuppressLint;
 import android.os.StrictMode;
-import android.util.Log;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 

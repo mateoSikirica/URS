@@ -74,10 +74,6 @@ public class Login extends AppCompatActivity {
 
         String userstr;
 
-        public String getUserstr() {
-            return userstr;
-        }
-
         @Override
         protected void onPreExecute() {
         }
