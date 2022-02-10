@@ -10,11 +10,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
@@ -87,6 +85,7 @@ public class Homepage extends AppCompatActivity  {
     public class DoWriteInDatabase extends AsyncTask<String, String, String>
     {
         String namestr = user.getText().toString();
+
         String z = "";
         boolean isSuccess=false;
 

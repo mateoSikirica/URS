@@ -3,6 +3,7 @@ package com.example.urs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -10,6 +11,17 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class Login extends AppCompatActivity {
     private Button goToRegister;
@@ -32,18 +44,15 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        email = (EditText) findViewById(R.id.emailID);
-        pass = (EditText) findViewById(R.id.passID);
+        email = findViewById(R.id.emailID);
+        pass = findViewById(R.id.passID);
 
         goToHomepage=findViewById(R.id.goToHomepage);
         goToHomepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email.getText().toString().equals("admin") && pass.getText().toString().equals("admin")) {
-                    openHomepageActivity();
-                } else {
-                    Toast.makeText(Login.this, "Krivo korisničko ime ili lozinka", Toast.LENGTH_LONG).show();
-                }
+                DoSendHTTPLoginRequest doSendHTTPLoginRequest = new DoSendHTTPLoginRequest();
+                doSendHTTPLoginRequest.execute(HelperClass.herokuURL + HelperClass.login);
             }
         });
     }
@@ -56,6 +65,73 @@ public class Login extends AppCompatActivity {
     public void openHomepageActivity() {
         Intent intent = new Intent (this, Homepage.class);
         startActivity(intent);
+    }
+
+    public class DoSendHTTPLoginRequest extends AsyncTask<String, String, String>
+    {
+        String emailstr = email.getText().toString();
+        String passstr = pass.getText().toString();
+
+        String userstr;
+
+        public String getUserstr() {
+            return userstr;
+        }
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            final MediaType JSON
+                    = MediaType.get("text/plain; charset=utf-8");
+
+            String jsonString = stringToJsonConverter(emailstr, passstr);
+
+            OkHttpClient client = new OkHttpClient();
+            RequestBody body = RequestBody.create(jsonString, JSON);
+
+            Request request = new Request.Builder()
+                    .url(strings[0])
+                    .post(body)
+                    .build();
+            try {
+                try (Response response = client.newCall(request).execute()) {
+                    return response.body().string();
+                }
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "HTTP request failed";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            String user = null;
+            if(s.contains("failed")) {
+                return;
+            }
+            if(s.contains("Success")) {
+                Gson gson = new Gson();
+                JsonObject jsonObject = gson.fromJson(s, JsonObject.class);
+                user = jsonObject.getAsJsonObject("user").get("name").toString();
+                HelperClass.userconcat = user.substring(1, user.length() - 1);
+                openHomepageActivity();
+            } else if(s.contains("Wrong")) {
+                String response, response2;
+                response = s.substring(12);
+                response2 = response.substring(0, response.length()-2);
+                Toast.makeText(Login.this, response2, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public String stringToJsonConverter(String email, String password) {
+        String jsonString;
+        jsonString = "{\"email\":" + "\"" + email + "\"" + ", \"password\":" + "\"" + password + "\"" + "}";
+
+        return jsonString;
     }
 
     /*protected void onResume() {
