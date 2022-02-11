@@ -72,8 +72,6 @@ public class Login extends AppCompatActivity {
         String emailstr = email.getText().toString();
         String passstr = pass.getText().toString();
 
-        String userstr;
-
         @Override
         protected void onPreExecute() {
         }

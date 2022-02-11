@@ -68,6 +68,7 @@ public class Register extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
+            HelperClass.userconcat = userstr;
         }
 
         @Override

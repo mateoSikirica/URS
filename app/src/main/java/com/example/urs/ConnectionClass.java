@@ -9,8 +9,8 @@ import java.sql.SQLException;
 
 public class ConnectionClass {
     String classs = "com.mysql.jdbc.Driver";
-   // String url = "jdbc:mysql://172.21.11.222/db7";
-    String url = "jdbc:mysql://192.168.5.14/db7";
+   // String url = "jdbc:mysql://172.21.11.222/db77";
+    String url = "jdbc:mysql://192.168.5.14/db77";
     String un = "test";
     String password = "test";
 

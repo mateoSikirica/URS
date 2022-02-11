@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -24,6 +25,7 @@ public class Homepage extends AppCompatActivity  {
     private ImageButton brojljudi;
     private ImageButton napredak;
     private ImageButton kartica;
+    private TextView ime;
     ConnectionClass connectionClass;
     ProgressDialog progressDialog;
 
@@ -37,6 +39,9 @@ public class Homepage extends AppCompatActivity  {
 
         connectionClass = new ConnectionClass();
         progressDialog = new ProgressDialog(this);
+
+        ime = findViewById(R.id.ime);
+        ime.setText("Welcome,\n" + HelperClass.userconcat);
 
         kartica = findViewById(R.id.tvojakartica);
         kartica.setOnClickListener(new View.OnClickListener() {

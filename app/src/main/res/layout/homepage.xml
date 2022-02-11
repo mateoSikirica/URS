@@ -13,12 +13,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="35dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="24dp"
             android:id="@+id/ime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
         <ImageView
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
