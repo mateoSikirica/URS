@@ -1,7 +1,5 @@
 package com.example.urs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -21,12 +22,12 @@ import java.util.Date;
 
 import static com.example.urs.Register.user;
 
-public class Homepage extends AppCompatActivity  {
-    private ImageButton brojljudi;
-    private ImageButton napredak;
-    private ImageButton kartica;
-    private ImageButton profil;
-    private TextView ime;
+public class Profil extends AppCompatActivity {
+    Button odjava;
+    TextView imeiPrezime;
+    TextView email;
+    TextView password;
+    private ImageButton homepage, brojljudi, napredak, kartica;
     ConnectionClass connectionClass;
     ProgressDialog progressDialog;
 
@@ -36,15 +37,102 @@ public class Homepage extends AppCompatActivity  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.profil);
 
         connectionClass = new ConnectionClass();
         progressDialog = new ProgressDialog(this);
 
-        ime = findViewById(R.id.ime);
-        ime.setText("Welcome,\n" + HelperClass.userconcat);
+        String namestr = null;
+        String emailstr = null;
+        String passstr = null;
 
-        kartica = findViewById(R.id.tvojakartica);
+        //get username
+        try {//get username from registration
+            if (!Register.user.getText().toString().equals("")) {
+                namestr = Register.user.getText().toString();
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        try {//get username from login
+            if (!HelperClass.userconcat.equals("")) {
+                namestr = HelperClass.userconcat;
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        //get email
+        try {
+            if (!Register.email.getText().toString().equals("")) {
+                emailstr = Register.email.getText().toString();
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (!HelperClass.emailconcat.equals("")) {
+                emailstr = HelperClass.emailconcat;
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        //get password
+        try {
+            if (!Register.pass.getText().toString().equals("")) {
+                passstr = Register.pass.getText().toString();
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (!HelperClass.passconcat.equals("")) {
+                passstr = HelperClass.passconcat;
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+        imeiPrezime = findViewById(R.id.profilIme);
+        imeiPrezime.setText(namestr);
+
+        email = findViewById(R.id.profilEmail);
+        email.setText(emailstr);
+
+        password = findViewById(R.id.profilPassword);
+        password.setText(passstr);
+
+        homepage = findViewById(R.id.pocetna);
+        brojljudi = findViewById(R.id.brojljudi);
+        napredak = findViewById(R.id.napredak);
+
+        odjava = findViewById(R.id.odjava);
+        odjava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLoginActivity();
+            }
+        });
+
+        homepage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHomepageActivity();
+            }
+        });
+        brojljudi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openBrojLjudiActivity();
+            }
+        });
+        napredak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNapredakActivity();
+            }
+        });
+
+        kartica=findViewById(R.id.tvojakartica);
         kartica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,50 +141,29 @@ public class Homepage extends AppCompatActivity  {
                 } else {
                     HelperClass.flag = true;
                 }
-                Homepage.DoWriteInDatabase doWriteInDatabase = new Homepage.DoWriteInDatabase();
+                Profil.DoWriteInDatabase doWriteInDatabase = new Profil.DoWriteInDatabase();
                 doWriteInDatabase.execute("");
             }
         });
-
-        brojljudi=findViewById(R.id.brojljudi);
-        brojljudi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openBrojljudiActivity();
-            }
-        });
-
-        napredak=findViewById(R.id.napredak);
-        napredak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNapredakActivity();
-            }
-        });
-
-        profil = findViewById(R.id.profil);
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openProfilActivity();
-            }
-        });
     }
 
-    public void openBrojljudiActivity() {
-        Intent intent = new Intent (this, Brojljudi.class);
-        startActivity(intent);
-    }
-    public void openNapredakActivity() {
-        Intent intent = new Intent (this, Napredak.class);
-        startActivity(intent);
-    }
     public void openHomepageActivity() {
         Intent intent = new Intent (this, Homepage.class);
         startActivity(intent);
     }
-    public void openProfilActivity() {
-        Intent intent = new Intent (this, Profil.class);
+
+    public void openBrojLjudiActivity() {
+        Intent intent = new Intent (this, Brojljudi.class);
+        startActivity(intent);
+    }
+
+    public void openNapredakActivity() {
+        Intent intent = new Intent (this, Napredak.class);
+        startActivity(intent);
+    }
+
+    public void openLoginActivity() {
+        Intent intent = new Intent (this, Login.class);
         startActivity(intent);
     }
 

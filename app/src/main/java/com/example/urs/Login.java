@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import org.json.JSONStringer;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -26,8 +28,8 @@ import okhttp3.Response;
 public class Login extends AppCompatActivity {
     private Button goToRegister;
     private Button goToHomepage;
-    private EditText email;
-    private EditText pass;
+    private static EditText email;
+    private static EditText pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,14 +105,24 @@ public class Login extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             String user = null;
+            String email = null;
+            String pass = null;
             if(s.contains("failed")) {
                 return;
             }
             if(s.contains("Success")) {
                 Gson gson = new Gson();
+
                 JsonObject jsonObject = gson.fromJson(s, JsonObject.class);
                 user = jsonObject.getAsJsonObject("user").get("name").toString();
                 HelperClass.userconcat = user.substring(1, user.length() - 1);
+
+                email = jsonObject.getAsJsonObject("user").get("email").toString();
+                HelperClass.emailconcat = email.substring(1, user.length() - 1);
+
+                pass = jsonObject.getAsJsonObject("user").get("password").toString();
+                HelperClass.passconcat = pass.substring(1, user.length() - 1);
+
                 openHomepageActivity();
             } else if(s.contains("Wrong")) {
                 String response, response2;

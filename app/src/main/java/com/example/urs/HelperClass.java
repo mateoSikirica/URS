@@ -6,4 +6,6 @@ public class HelperClass {
     public static String login = "login";
     public static String register = "register";
     public static volatile String userconcat;
+    public static volatile String emailconcat;
+    public static volatile String passconcat;
 }

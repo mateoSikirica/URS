@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
@@ -29,16 +30,16 @@
     </LinearLayout>
 
     <Button
-
+        android:background="@color/colorAccent"
         android:id="@+id/botun"
-        android:layout_width="268dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="10dp"
         android:text="Broj ljudi u teretani:"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/white" />
 
     <TextView
         android:layout_gravity="center"
@@ -54,20 +55,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="53dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_height="72dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="10dp"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/pocetna"
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="56dp"
                 android:background="@drawable/pocetna" />
 
@@ -80,15 +80,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_height="74dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="10dp"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/brojljudi"
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="56dp"
                 android:background="@drawable/brojljudi" />
 
@@ -128,15 +127,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_height="74dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="10dp"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/napredak"
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="56dp"
                 android:background="@drawable/napredak" />
 
@@ -150,15 +148,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="70dp"
+            android:layout_width="65dp"
             android:layout_height="74dp"
             android:layout_marginTop="50dp"
-            android:layout_marginRight="10dp"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/profil"
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="56dp"
                 android:background="@drawable/profil" />
 

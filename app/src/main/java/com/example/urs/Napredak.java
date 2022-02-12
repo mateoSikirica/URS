@@ -32,6 +32,7 @@ public class Napredak extends AppCompatActivity {
     private ImageButton kartica;
     ConnectionClass connectionClass;
     ProgressDialog progressDialog;
+    private ImageButton profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,13 @@ public class Napredak extends AppCompatActivity {
                 openBrojljudiActivity();
             }
         });
+        profil = findViewById(R.id.profil);
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProfilActivity();
+            }
+        });
     }
 
     public void openHomepageActivity() {
@@ -85,6 +93,11 @@ public class Napredak extends AppCompatActivity {
 
     public void openBrojljudiActivity() {
         Intent intent = new Intent (this, Brojljudi.class);
+        startActivity(intent);
+    }
+
+    public void openProfilActivity() {
+        Intent intent = new Intent (this, Profil.class);
         startActivity(intent);
     }
 

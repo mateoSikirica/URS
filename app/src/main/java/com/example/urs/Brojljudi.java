@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class Brojljudi extends AppCompatActivity {
     ConnectionClass connectionClass;
     ProgressDialog progressDialog;
     private ImageButton kartica;
+    private ImageButton profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,13 @@ public class Brojljudi extends AppCompatActivity {
                 openNapredakActivity();
             }
         });
+        profil = findViewById(R.id.profil);
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProfilActivity();
+            }
+        });
     }
     public void openHomepageActivity() {
         Intent intent = new Intent (this, Homepage.class);
@@ -91,6 +100,11 @@ public class Brojljudi extends AppCompatActivity {
 
     public void openNapredakActivity() {
         Intent intent = new Intent (this, Napredak.class);
+        startActivity(intent);
+    }
+
+    public void openProfilActivity() {
+        Intent intent = new Intent (this, Profil.class);
         startActivity(intent);
     }
 
