@@ -9,6 +9,7 @@ public class HelperClass {
     public static String edit = "user/";
     public static String timelog1 = "timelog?user_id=";
     public static String timelog2 = "&gym_id=";
+    public static String brojdolazaka = "timelog/";
     public static boolean isPasswordVisible = false;
     public static volatile String userconcat;
     public static volatile String emailconcat;

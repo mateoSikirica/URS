@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,8 @@ public class Brojljudi extends AppCompatActivity {
     private ImageButton kartica;
     private ImageButton profil;
     TextView rez, rez2, rez3;
-    Button botun, botun2, botun3;
+    ImageButton botun, botun2, botun3;
+    ImageView group, group2, group3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,10 @@ public class Brojljudi extends AppCompatActivity {
         botun = findViewById(R.id.botun);
         botun2 = findViewById(R.id.botun2);
         botun3 = findViewById(R.id.botun3);
+
+        group = findViewById(R.id.group);
+        group2 = findViewById(R.id.group2);
+        group3 = findViewById(R.id.group3);
 
         if(HelperClass.gymconcat1001==false) {
             botun.setVisibility(View.INVISIBLE);
@@ -64,30 +70,30 @@ public class Brojljudi extends AppCompatActivity {
         rez2 = findViewById(R.id.rez2);
         rez3 = findViewById(R.id.rez3);
 
-        Button botun = findViewById(R.id.botun);
         botun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
                 doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1001");
+                group.setVisibility(View.VISIBLE);
             }
         });
 
-        Button botun2 = findViewById(R.id.botun2);
         botun2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
                 doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1002");
+                group2.setVisibility(View.VISIBLE);
             }
         });
 
-        Button botun3 = findViewById(R.id.botun3);
         botun3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
                 doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1003");
+                group3.setVisibility(View.VISIBLE);
             }
         });
 

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
         </TextView>
         <ImageView
-            android:layout_marginLeft="0dp"
+            android:layout_marginLeft="76dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -33,106 +33,82 @@
 
     <LinearLayout
         android:id="@+id/guliver"
-        android:layout_width="wrap_content"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="GULIVER"
-            android:textColor="@color/colorAccent"
-            android:textSize="25dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="82dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/guliver" />
 
         <ImageButton
             android:id="@+id/nfccitac1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="107dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
             android:background="@drawable/kartica"
             android:text="NFC ČITAČ"
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaGuliver"
-        android:layout_marginLeft="70dp"
-        android:layout_width="110dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
 
     <LinearLayout
         android:id="@+id/joker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_width="315dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="JOKER"
-            android:textColor="@color/colorAccent"
-            android:textSize="25dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:background="@drawable/spartan" />
 
         <ImageButton
             android:id="@+id/nfccitac2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="130dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="110dp"
             android:background="@drawable/kartica"
             android:text="NFC ČITAČ"
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaJoker"
-        android:layout_marginLeft="71dp"
-        android:layout_width="82dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
-
     <LinearLayout
         android:id="@+id/champion"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
+        android:layout_width="269dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHAMPION"
-            android:textColor="@color/colorAccent"
-            android:textSize="25dp"
-            />
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:background="@drawable/champion" />
+
         <ImageButton
-            android:background="@drawable/kartica"
-            android:layout_marginLeft="77dp"
             android:id="@+id/nfccitac3"
-            android:textColor="@color/white"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="110dp"
+            android:background="@drawable/kartica"
             android:text="NFC ČITAČ"
-            />
+            android:textColor="@color/white" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaChampion"
-        android:layout_marginLeft="70dp"
-        android:layout_width="132dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
-
     <LinearLayout
-        android:layout_marginTop="93dp"
+        android:layout_marginTop="29dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

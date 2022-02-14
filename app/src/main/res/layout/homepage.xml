@@ -35,21 +35,21 @@
         android:id="@+id/guliver"
         android:layout_marginTop="60dp"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-    <TextView
-        android:layout_marginLeft="50dp"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GULIVER"
-        android:textColor="@color/colorAccent"
-        android:textSize="25dp"
-      />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="100dp"
+            android:layout_height="82dp"
+            android:background="@drawable/guliver"/>
 
         <TextView
-            android:layout_marginLeft="65dp"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:layout_marginLeft="23dp"
             android:id="@+id/brojdanadoisteka1"
             android:textColor="@color/colorAccent"
             android:layout_width="wrap_content"
@@ -57,6 +57,8 @@
             android:text="Broj dana do isteka: "
             />
         <TextView
+            android:layout_gravity="center"
+            android:textSize="17dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
@@ -64,38 +66,31 @@
             />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaGuliver"
-        android:layout_marginLeft="50dp"
-        android:layout_width="110dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
-
     <LinearLayout
+        android:layout_gravity="center"
         android:id="@+id/joker"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:background="@drawable/spartan"/>
         <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="JOKER"
-            android:textColor="@color/colorAccent"
-            android:textSize="25dp"
-            />
-
-        <TextView
+            android:layout_gravity="center"
+            android:textSize="17dp"
             android:id="@+id/brojdanadoisteka2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="87dp"
+            android:layout_marginLeft="38dp"
             android:text="Broj dana do isteka: "
             android:textColor="@color/colorAccent" />
 
         <TextView
+            android:textSize="17dp"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
@@ -103,30 +98,23 @@
             />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaJoker"
-        android:layout_marginLeft="50dp"
-        android:layout_width="82dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
-
     <LinearLayout
+        android:layout_gravity="center"
         android:id="@+id/champion"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:background="@drawable/champion" />
+
         <TextView
-            android:layout_marginLeft="50dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CHAMPION"
-            android:textColor="@color/colorAccent"
-            android:textSize="25dp"
-            />
-        <TextView
-            android:layout_marginLeft="33dp"
+            android:textSize="17dp"
+            android:layout_marginLeft="38dp"
+            android:layout_gravity="center"
             android:id="@+id/brojdanadoisteka3"
             android:textColor="@color/colorAccent"
             android:layout_width="wrap_content"
@@ -134,6 +122,8 @@
             android:text="Broj dana do isteka: "
             />
         <TextView
+            android:textSize="17dp"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
@@ -141,15 +131,8 @@
             />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/crtaChampion"
-        android:layout_marginLeft="50dp"
-        android:layout_width="132dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line" />
-
     <LinearLayout
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="28dp"
         android:id="@+id/ikone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

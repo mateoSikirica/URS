@@ -28,7 +28,6 @@ public class Kartica extends AppCompatActivity {
     ImageButton nfccitac1, nfccitac2, nfccitac3;
     ImageButton pocetna, brojljudi, napredak, profil;
     private LinearLayout guliver, joker, champion;
-    private ImageView crtaGuliver, crtaJoker, crtaChampion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +40,15 @@ public class Kartica extends AppCompatActivity {
         guliver = findViewById(R.id.guliver);
         joker = findViewById(R.id.joker);
         champion = findViewById(R.id.champion);
-        crtaGuliver = findViewById(R.id.crtaGuliver);
-        crtaJoker = findViewById(R.id.crtaJoker);
-        crtaChampion = findViewById(R.id.crtaChampion);
 
         if(HelperClass.gymconcat1001==false) {
             guliver.setVisibility(View.INVISIBLE);
-            crtaGuliver.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1002==false) {
             joker.setVisibility(View.INVISIBLE);
-            crtaJoker.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1003==false) {
             champion.setVisibility(View.INVISIBLE);
-            crtaChampion.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1001==false && HelperClass.gymconcat1002==false && HelperClass.gymconcat1003==false)
         {
