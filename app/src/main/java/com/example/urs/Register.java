@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -22,7 +25,7 @@ import okhttp3.Response;
 
 public class Register extends AppCompatActivity {
     private Button goToHomepage;
-    public static EditText user, pass, email, passAgain;
+    public static EditText user, pass, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,22 +37,13 @@ public class Register extends AppCompatActivity {
         user = findViewById(R.id.imeiprezime);
         pass = findViewById(R.id.lozinka);
         email = findViewById(R.id.emailident);
-        passAgain = findViewById(R.id.ponoviLozinku);
 
         goToHomepage=findViewById(R.id.goToHomepage2);
         goToHomepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pass.getText().toString().equals(passAgain.getText().toString()) && !pass.getText().toString().equals("") &&
-                        !passAgain.getText().toString().equals("") && !user.getText().equals("") && !email.getText().toString().equals("")) {
-                    DoSendHTTPRequest doSendHTTPRequest = new DoSendHTTPRequest();
-                    doSendHTTPRequest.execute(HelperClass.herokuURL + HelperClass.register);
-                } else if (!pass.getText().toString().equals(passAgain.getText().toString()) && !pass.getText().toString().equals("") &&
-                        !passAgain.getText().toString().equals("") ){
-                    Toast.makeText(Register.this, "Passwords do not match!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                }
+                DoSendHTTPRequest doSendHTTPRequest = new DoSendHTTPRequest();
+                doSendHTTPRequest.execute(HelperClass.herokuURL + HelperClass.register);
             }
         });
     }
@@ -98,19 +92,21 @@ public class Register extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            if(s.contains("failed")) {
-                return;
-            }
-            if(s.contains("exists")) {
+            Gson gson1 = new Gson();
+            String message = null;
+            String id = null;
+            String messageConcat = null;
+            JsonObject jsonObject1 = gson1.fromJson(s, JsonObject.class);
 
-            } else if(s.contains("created")) {
+            if(s.contains("created")) {
+                id = jsonObject1.getAsJsonObject("createdUser").get("id").toString();
+                HelperClass.idconcat = id;
                 openHomepageActivity();
             }
+            message = jsonObject1.get("message").toString();
+            messageConcat = message.substring(1, message.length() -1);
 
-            String response, response2;
-            response = s.substring(12);
-            response2 = response.substring(0, response.length()-2);
-            Toast.makeText(Register.this, response2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Register.this, messageConcat, Toast.LENGTH_SHORT).show();
         }
     }
 

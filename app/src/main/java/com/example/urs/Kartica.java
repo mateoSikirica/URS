@@ -1,18 +1,17 @@
 package com.example.urs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -25,13 +24,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class Brojljudi extends AppCompatActivity {
-    private ImageButton pocetna;
-    private ImageButton napredak;
-    private ImageButton kartica;
-    private ImageButton profil;
-    TextView rez, rez2, rez3;
-    Button botun, botun2, botun3;
+public class Kartica extends AppCompatActivity {
+    ImageButton nfccitac1, nfccitac2, nfccitac3;
+    ImageButton pocetna, brojljudi, napredak, profil;
+    private LinearLayout guliver, joker, champion;
+    private ImageView crtaGuliver, crtaJoker, crtaChampion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,63 +36,64 @@ public class Brojljudi extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_brojljudi);
+        setContentView(R.layout.kartica);
 
-        botun = findViewById(R.id.botun);
-        botun2 = findViewById(R.id.botun2);
-        botun3 = findViewById(R.id.botun3);
+        guliver = findViewById(R.id.guliver);
+        joker = findViewById(R.id.joker);
+        champion = findViewById(R.id.champion);
+        crtaGuliver = findViewById(R.id.crtaGuliver);
+        crtaJoker = findViewById(R.id.crtaJoker);
+        crtaChampion = findViewById(R.id.crtaChampion);
 
         if(HelperClass.gymconcat1001==false) {
-            botun.setVisibility(View.INVISIBLE);
+            guliver.setVisibility(View.INVISIBLE);
+            crtaGuliver.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1002==false) {
-            botun2.setVisibility(View.INVISIBLE);
+            joker.setVisibility(View.INVISIBLE);
+            crtaJoker.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1003==false) {
-            botun3.setVisibility(View.INVISIBLE);
+            champion.setVisibility(View.INVISIBLE);
+            crtaChampion.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1001==false && HelperClass.gymconcat1002==false && HelperClass.gymconcat1003==false)
         {
             Toast.makeText(this, "Niste član niti jedne teretane!", Toast.LENGTH_SHORT).show();
         }
 
-        kartica = findViewById(R.id.tvojakartica);
-        rez = findViewById(R.id.rez);
-        rez2 = findViewById(R.id.rez2);
-        rez3 = findViewById(R.id.rez3);
-
-        Button botun = findViewById(R.id.botun);
-        botun.setOnClickListener(new View.OnClickListener() {
+        nfccitac1=findViewById(R.id.nfccitac1);
+        nfccitac1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
-                doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1001");
+                Kartica.DoSendHTTPLogUserRequest doSendHTTPLogUserRequest = new Kartica.DoSendHTTPLogUserRequest();
+                doSendHTTPLogUserRequest.execute(HelperClass.herokuURL + HelperClass.timelog1 + HelperClass.idconcat + HelperClass.timelog2 + "1001");
             }
         });
 
-        Button botun2 = findViewById(R.id.botun2);
-        botun2.setOnClickListener(new View.OnClickListener() {
+        nfccitac2=findViewById(R.id.nfccitac2);
+        nfccitac2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
-                doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1002");
+                Kartica.DoSendHTTPLogUserRequest doSendHTTPLogUserRequest = new Kartica.DoSendHTTPLogUserRequest();
+                doSendHTTPLogUserRequest.execute(HelperClass.herokuURL + HelperClass.timelog1 + HelperClass.idconcat + HelperClass.timelog2 + "1002");
             }
         });
 
-        Button botun3 = findViewById(R.id.botun3);
-        botun3.setOnClickListener(new View.OnClickListener() {
+        nfccitac3=findViewById(R.id.nfccitac3);
+        nfccitac3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doGetBrojLjudiRequest doGetBrojLjudiRequest = new doGetBrojLjudiRequest();
-                doGetBrojLjudiRequest.execute(HelperClass.herokuURL + HelperClass.gym + "1003");
+                Kartica.DoSendHTTPLogUserRequest doSendHTTPLogUserRequest = new Kartica.DoSendHTTPLogUserRequest();
+                doSendHTTPLogUserRequest.execute(HelperClass.herokuURL + HelperClass.timelog1 + HelperClass.idconcat + HelperClass.timelog2 + "1003");
             }
         });
 
-        kartica=findViewById(R.id.tvojakartica);
-        kartica.setOnClickListener(new View.OnClickListener() {
+        brojljudi=findViewById(R.id.brojljudi);
+        brojljudi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               openKarticaActivity();
+                openBrojljudiActivity();
             }
         });
 
@@ -106,6 +104,7 @@ public class Brojljudi extends AppCompatActivity {
                 openHomepageActivity();
             }
         });
+
         napredak=findViewById(R.id.napredak);
         napredak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +112,8 @@ public class Brojljudi extends AppCompatActivity {
                 openNapredakActivity();
             }
         });
-        profil = findViewById(R.id.profil);
+
+        profil=findViewById(R.id.profil);
         profil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,8 +121,9 @@ public class Brojljudi extends AppCompatActivity {
             }
         });
     }
-    public void openHomepageActivity() {
-        Intent intent = new Intent (this, Homepage.class);
+
+    public void openBrojljudiActivity() {
+        Intent intent = new Intent (this, Brojljudi.class);
         startActivity(intent);
     }
 
@@ -131,8 +132,8 @@ public class Brojljudi extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openKarticaActivity() {
-        Intent intent = new Intent (this, Kartica.class);
+    public void openHomepageActivity() {
+        Intent intent = new Intent (this, Homepage.class);
         startActivity(intent);
     }
 
@@ -141,8 +142,9 @@ public class Brojljudi extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public class doGetBrojLjudiRequest extends AsyncTask<String, String, String>
-    {
+
+    public class DoSendHTTPLogUserRequest extends AsyncTask<String, String, String> {
+
         @Override
         protected void onPreExecute() {
         }
@@ -159,7 +161,7 @@ public class Brojljudi extends AppCompatActivity {
                 try (Response response = client.newCall(request).execute()) {
                     return response.body().string();
                 }
-            }catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return "HTTP request failed";
@@ -167,23 +169,15 @@ public class Brojljudi extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            String currentlyInGym;
-            String id;
-            Gson gson = new Gson();
+            String message;
+            String messageConcat;
+            Gson gson1 = new Gson();
 
-            JsonObject jsonObject = gson.fromJson(s, JsonObject.class);
-            currentlyInGym = jsonObject.get("currentlyInGym").toString();
+            JsonObject jsonObject1 = gson1.fromJson(s, JsonObject.class);
+            message = jsonObject1.get("message").toString();
+            messageConcat = message.substring(1, message.length() -1);
 
-            JsonObject jsonObject2 = gson.fromJson(s, JsonObject.class);
-            id = jsonObject2.getAsJsonObject("gym").get("id").toString();
-            if(id.equals("1001")) {
-                rez.setText(currentlyInGym);
-            } else if (id.equals("1002")) {
-                rez2.setText(currentlyInGym);
-            }else if (id.equals("1003")) {
-                rez3.setText(currentlyInGym);
-            }
+            Toast.makeText(Kartica.this, messageConcat, Toast.LENGTH_SHORT).show();
         }
     }
-
 }

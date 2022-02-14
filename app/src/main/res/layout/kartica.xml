@@ -15,15 +15,15 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="50dp"
             android:textColor="@color/colorAccent"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:id="@+id/ime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
         <ImageView
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -32,187 +32,107 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="50dp"
+        android:id="@+id/guliver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="115dp"
-            android:textSize="17dp"
-            android:layout_height="wrap_content"
-            android:text="Ime i prezime:  "
-            android:textColor="@color/colorAccent"
-            />
-
-        <TextView
-            android:id="@+id/profilIme"
-            android:textSize="17dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="@color/colorAccent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="115dp"
-            android:textSize="17dp"
-            android:layout_height="wrap_content"
-            android:text="Email:  "
-            android:textColor="@color/colorAccent"
-            />
-        <TextView
-            android:id="@+id/profilEmail"
-            android:textSize="17dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="115dp"
-            android:textSize="17dp"
-            android:layout_height="wrap_content"
-            android:text="Password:  "
-            android:textColor="@color/colorAccent"
-            />
-        <TextView
-            android:inputType="textWebPassword"
-            android:textSize="17dp"
-            android:id="@+id/profilPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            />
-
-        <Button
-            android:id="@+id/revealPassword"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="13dp"
-            android:background="@drawable/hiddenpass" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/edit"
-        android:radius="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_width="160dp"
-        android:textAlignment="center"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:text="Edit credentials"
-        android:textSize="15dp"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        />
-
-    <TextView
-        android:id="@+id/ime2"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ime i prezime"
-        android:layout_marginHorizontal="50dp"
-        android:textColor="@color/colorAccent"
-        />
-
-    <EditText
-        android:visibility="invisible"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@color/white"
-        android:id="@+id/imeiprezimeedit"
-        />
-
-    <TextView
-        android:id="@+id/email2"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_marginHorizontal="50dp"
-        android:textColor="@color/colorAccent"
-        />
-    <EditText
-        android:visibility="invisible"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@color/white"
-        android:id="@+id/emailedit"
-        />
-    <TextView
-        android:id="@+id/pass2"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lozinka"
-        android:layout_marginHorizontal="50dp"
-        android:textColor="@color/colorAccent"
-        />
-    <EditText
-        android:visibility="invisible"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="15dp"
-        android:textColor="@color/white"
-        android:id="@+id/lozinkaedit"
-        />
-
-    <LinearLayout
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="50dp"
-        android:gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/submit"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="@color/colorAccent"
-            android:text="Submit"
-            android:textColor="@color/white"
-            android:visibility="invisible" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="GULIVER"
+            android:textColor="@color/colorAccent"
+            android:textSize="25dp" />
 
-        <Button
-            android:id="@+id/odjava"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="134dp"
-            android:background="@color/colorAccent"
-            android:text="Log out"
+        <ImageButton
+            android:id="@+id/nfccitac1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="107dp"
+            android:background="@drawable/kartica"
+            android:text="NFC ČITAČ"
             android:textColor="@color/white" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/crtaGuliver"
+        android:layout_marginLeft="70dp"
+        android:layout_width="110dp"
+        android:layout_height="3dp"
+        android:background="@drawable/line" />
+
     <LinearLayout
-        android:layout_marginTop="18dp"
+        android:id="@+id/joker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="JOKER"
+            android:textColor="@color/colorAccent"
+            android:textSize="25dp" />
+
+        <ImageButton
+            android:id="@+id/nfccitac2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="130dp"
+            android:background="@drawable/kartica"
+            android:text="NFC ČITAČ"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/crtaJoker"
+        android:layout_marginLeft="71dp"
+        android:layout_width="82dp"
+        android:layout_height="3dp"
+        android:background="@drawable/line" />
+
+    <LinearLayout
+        android:id="@+id/champion"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHAMPION"
+            android:textColor="@color/colorAccent"
+            android:textSize="25dp"
+            />
+        <ImageButton
+            android:background="@drawable/kartica"
+            android:layout_marginLeft="77dp"
+            android:id="@+id/nfccitac3"
+            android:textColor="@color/white"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="NFC ČITAČ"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/crtaChampion"
+        android:layout_marginLeft="70dp"
+        android:layout_width="132dp"
+        android:layout_height="3dp"
+        android:background="@drawable/line" />
+
+    <LinearLayout
+        android:layout_marginTop="93dp"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -265,7 +185,8 @@
                 android:id="@+id/tvojakartica"
                 android:layout_width="73dp"
                 android:layout_height="80dp"
-                android:background="@drawable/kartica" />
+                android:background="@drawable/kartica"
+                />
 
             <TextView
                 android:layout_width="match_parent"

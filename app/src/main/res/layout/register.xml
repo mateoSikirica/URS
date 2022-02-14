@@ -21,6 +21,7 @@
         />
 
     <TextView
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ime i prezime"
@@ -70,24 +71,9 @@
         android:textColor="@color/white"
         android:id="@+id/lozinka"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ponovite lozinku"
-        android:layout_marginHorizontal="30dp"
-        android:textColor="@color/colorAccent"
-        />
-    <EditText
-        android:inputType="textPassword"
-        android:id="@+id/ponoviLozinku"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
-        />
 
     <Button
+        android:layout_marginTop="30dp"
         android:id="@+id/goToHomepage2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

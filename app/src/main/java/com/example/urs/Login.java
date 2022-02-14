@@ -15,8 +15,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import org.json.JSONStringer;
-
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -105,12 +103,27 @@ public class Login extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             String user = null;
+            String id = null;
             String email = null;
             String pass = null;
+            String message = null;
+            String messageConcat = null;
+            boolean gymid1;
+            boolean gymid2;
+            boolean gymid3;
+
+            Gson gson1 = new Gson();
+
+            JsonObject jsonObject1 = gson1.fromJson(s, JsonObject.class);
+            message = jsonObject1.get("message").toString();
+            messageConcat = message.substring(1, message.length() -1);
+
+            Toast.makeText(Login.this, messageConcat, Toast.LENGTH_SHORT).show();
             if(s.contains("failed")) {
                 return;
             }
             if(s.contains("Success")) {
+                HelperClass.isUserLogged = true;
                 Gson gson = new Gson();
 
                 JsonObject jsonObject = gson.fromJson(s, JsonObject.class);
@@ -118,17 +131,25 @@ public class Login extends AppCompatActivity {
                 HelperClass.userconcat = user.substring(1, user.length() - 1);
 
                 email = jsonObject.getAsJsonObject("user").get("email").toString();
-                HelperClass.emailconcat = email.substring(1, user.length() - 1);
+                HelperClass.emailconcat = email.substring(1, email.length() - 1);
 
                 pass = jsonObject.getAsJsonObject("user").get("password").toString();
-                HelperClass.passconcat = pass.substring(1, user.length() - 1);
+                HelperClass.passconcat = pass.substring(1, pass.length() - 1);
+
+                id = jsonObject.getAsJsonObject("user").get("id").toString();
+                HelperClass.idconcat = id;
+
+
+                gymid1 = jsonObject.getAsJsonArray("code").get(0).getAsBoolean();
+                HelperClass.gymconcat1001 = gymid1;
+
+                gymid2 = jsonObject.getAsJsonArray("code").get(1).getAsBoolean();
+                HelperClass.gymconcat1002 = gymid2;
+
+                gymid3 = jsonObject.getAsJsonArray("code").get(2).getAsBoolean();
+                HelperClass.gymconcat1003 = gymid3;
 
                 openHomepageActivity();
-            } else if(s.contains("Wrong")) {
-                String response, response2;
-                response = s.substring(12);
-                response2 = response.substring(0, response.length()-2);
-                Toast.makeText(Login.this, response2, Toast.LENGTH_SHORT).show();
             }
         }
     }
