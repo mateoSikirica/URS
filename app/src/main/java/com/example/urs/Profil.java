@@ -163,6 +163,9 @@ public class Profil extends AppCompatActivity {
     }
 
     public void openLoginActivity() {
+        HelperClass.gymconcat1001=false;
+        HelperClass.gymconcat1002=false;
+        HelperClass.gymconcat1003=false;
         HelperClass.isPasswordVisible = false;
         Intent intent = new Intent (this, Login.class);
         startActivity(intent);
