@@ -34,6 +34,7 @@ public class Brojljudi extends AppCompatActivity {
     TextView rez, rez2, rez3;
     ImageButton botun, botun2, botun3;
     ImageView group, group2, group3;
+    TextView g,s,c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,10 @@ public class Brojljudi extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_brojljudi);
+
+        g = findViewById(R.id.g);
+        s = findViewById(R.id.s);
+        c = findViewById(R.id.c);
 
         botun = findViewById(R.id.botun);
         botun2 = findViewById(R.id.botun2);
@@ -53,12 +58,15 @@ public class Brojljudi extends AppCompatActivity {
 
         if(HelperClass.gymconcat1001==false) {
             botun.setVisibility(View.INVISIBLE);
+            g.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1002==false) {
             botun2.setVisibility(View.INVISIBLE);
+            s.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1003==false) {
             botun3.setVisibility(View.INVISIBLE);
+            c.setVisibility(View.INVISIBLE);
         }
         if(HelperClass.gymconcat1001==false && HelperClass.gymconcat1002==false && HelperClass.gymconcat1003==false)
         {

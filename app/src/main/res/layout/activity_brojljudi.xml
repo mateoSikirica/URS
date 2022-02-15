@@ -43,6 +43,16 @@
             android:background="@drawable/guliver"/>
 
         <TextView
+            android:id="@+id/g"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:text="Guliver"
+            android:textColor="@color/colorAccent"
+            />
+
+        <TextView
             android:layout_marginLeft="20dp"
             android:id="@+id/rez"
             android:layout_width="45dp"
@@ -77,6 +87,16 @@
             android:background="@drawable/spartan"/>
 
         <TextView
+            android:id="@+id/s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:text="Sparta"
+            android:textColor="@color/colorAccent"
+            />
+
+        <TextView
             android:layout_marginLeft="20dp"
             android:layout_gravity="center"
             android:id="@+id/rez2"
@@ -109,6 +129,16 @@
             android:layout_width="100dp"
             android:layout_height="70dp"
             android:background="@drawable/champion" />
+
+        <TextView
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:text="Champ"
+            android:textColor="@color/colorAccent"
+            />
 
         <TextView
             android:layout_marginLeft="20dp"
